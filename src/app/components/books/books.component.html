@@ -17,6 +17,13 @@
       <td>{{ book.author }}</td>
       <td>{{ book.genre }}</td>
       <td>{{ book.price }}</td>
+      <td>
+        <i
+          class="bi bi-trash"
+          (click)="deleteBook(book)"
+          style="color: red"
+        ></i>
+      </td>
     </tr>
   </tbody>
 </table>
