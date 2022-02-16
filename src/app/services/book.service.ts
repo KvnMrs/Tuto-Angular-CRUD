@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {
-  Firestore, addDoc, collection
+  Firestore, addDoc, collection, collectionData
 } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import { IBook } from '../models/book.model';
 
 @Injectable({
@@ -14,5 +15,10 @@ export class BookService {
   addBook(book: IBook) {
     const booksRef = collection(this.firestore, 'books'); 
     return addDoc(booksRef, book);
+  }
+
+  getBooks(): Observable<IBook[]> {
+    const booksRef = collection(this.firestore, 'books');
+    return collectionData(booksRef, { idField: 'id' }) as Observable<IBook[]>;
   }
 }
