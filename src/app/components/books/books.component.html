@@ -19,6 +19,13 @@
       <td>{{ book.price }}</td>
       <td>
         <i
+          class="bi bi-pencil-square"
+          style="color: green"
+          (click)="editModal(book)"
+        ></i>
+      </td>
+      <td>
+        <i
           class="bi bi-trash"
           (click)="deleteBook(book)"
           style="color: red"
